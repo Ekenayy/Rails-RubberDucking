@@ -26,6 +26,21 @@ class StudentsController < ApplicationController
     end 
   end 
 
+  def edit
+  end 
+  
+  def update
+    @student.update(student_params)
+
+    if @student.valid?
+      @student.save
+      redirect_to student_path(@student)
+    else
+      redirect_to edit_student_path
+    end 
+    
+  end 
+
     private
 
       def student_params 
