@@ -4,10 +4,7 @@
     <%= f.text_field :name%><br>
     <%= f.label :description%>
     <%= f.text_field :description%><br>
-    <%= f.label :student_id%>
-    <%= f.text_field :student_id%><br>
-
+    <%= f.collection_select :student_id, Student.all, :id, :name %>
     <%= f.submit%>
 <% end %>
 
-#Implement Collection_Select for Ducks new and edit  
