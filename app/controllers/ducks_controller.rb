@@ -24,6 +24,21 @@ class DucksController < ApplicationController
 
   end 
 
+  def edit
+  end 
+  
+  def update
+    @duck.update(duck_params)
+
+    if @duck.valid?
+      @duck.save
+      redirect_to duck_path(@duck)
+    else
+      redirect_to edit_duck_path
+    end 
+    
+  end 
+
     private
       
       def duck_params
