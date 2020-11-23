@@ -18,7 +18,7 @@ class DucksController < ApplicationController
     if duck.valid?
       redirect_to duck_path(duck)
     elsif duck.errors
-      my_errors = duck.errors.full_messages
+      flash[:my_errors] = duck.errors.full_messages
       redirect_to new_duck_path
     end 
 

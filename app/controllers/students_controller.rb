@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
     if student.valid?
       redirect_to student_path(student)
     elsif student.errors
-      my_errors = student.errors.full_messages
+      flash[:my_errors] = student.errors.full_messages
       #p errors 
       redirect_to new_student_path
     end 
@@ -36,9 +36,10 @@ class StudentsController < ApplicationController
       @student.save
       redirect_to student_path(@student)
     else
+      flash[:my_errors] = student.errors.full_messages
       redirect_to edit_student_path
     end 
-    
+
   end 
 
     private
